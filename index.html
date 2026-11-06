@@ -1,27 +1,41 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5f0">
-<title>OrçaFácil — preço justo, orçamento pronto</title><meta name="description" content="Calcule o preço do seu serviço e monte uma mensagem de orçamento pronta para enviar pelo WhatsApp. Grátis e sem cadastro.">
-<style>
-:root{--ink:#182b25;--muted:#65736c;--green:#176b4c;--lime:#d9f36a;--paper:#f6f5f0;--line:#dce2d9;--white:#fff;--warn:#fff3d3}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}header{padding:24px max(22px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-size:20px;font-weight:850;letter-spacing:-.6px}.brand span{color:var(--green)}.tag{font-size:12px;color:var(--muted);font-weight:650}main{max-width:1120px;margin:0 auto;padding:54px 22px 70px}.hero{max-width:720px;margin-bottom:32px}.eyebrow{color:var(--green);font-weight:800;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}h1{font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-2.4px;margin:12px 0 16px}.hero p{color:var(--muted);font-size:18px;max-width:610px;margin:0}.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:20px;align-items:start}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 8px 30px #253d2d0b}h2{font-size:19px;margin:0 0 20px;letter-spacing:-.4px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-size:13px;font-weight:700}.hint{font-size:12px;color:var(--muted);font-weight:400}input{font:inherit;color:var(--ink);border:1px solid #cfd8d0;border-radius:10px;padding:12px;background:white;outline:none;width:100%}input:focus{border-color:var(--green);box-shadow:0 0 0 3px #176b4c20}input::placeholder{color:#97a29c}.result{background:var(--ink);color:white;border-radius:17px;padding:22px;margin-bottom:16px}.result small{color:#c4d4cc;font-weight:650}.price{font-size:42px;font-weight:850;letter-spacing:-1.5px;line-height:1.15;margin:5px 0 3px}.result .explain{font-size:12px;color:#c4d4cc}.breakdown{display:grid;gap:10px;margin:18px 0 0}.row{display:flex;justify-content:space-between;gap:12px;color:#e6eee9;font-size:13px}.row b{color:white}.btn{border:0;border-radius:11px;background:var(--green);color:white;font-weight:800;font-size:15px;padding:14px 17px;width:100%;cursor:pointer}.btn:hover{filter:brightness(1.08)}.btn.secondary{background:var(--lime);color:var(--ink);margin-top:10px}.preview{margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:12px;background:#fafbf8;white-space:pre-wrap;color:#46554c;font-size:13px;min-height:90px}.disclaimer{font-size:11px;color:var(--muted);margin:14px 2px 0}.notice{background:var(--warn);padding:12px;border-radius:10px;font-size:12px;color:#684a10;margin-top:15px}.footer{max-width:1120px;margin:auto;padding:0 22px 35px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:20px}@media(max-width:760px){main{padding-top:36px}.grid{grid-template-columns:1fr}.card{padding:20px}.footer{display:block}.tag{display:none}}@media(max-width:420px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.price{font-size:36px}}
-</style></head><body>
-<header><div class="brand">orça<span>fácil</span></div><div class="tag">FERRAMENTA GRATUITA · SEM CADASTRO</div></header><main>
-<section class="hero"><div class="eyebrow">Seu trabalho tem valor</div><h1>Preço justo.<br>Orçamento pronto.</h1><p>Descubra quanto cobrar pelo seu serviço e envie uma proposta clara pelo WhatsApp em poucos passos.</p></section>
-<section class="grid"><div class="card"><h2>Monte seu orçamento</h2><div class="fields">
-<div class="field full"><label for="service">Qual serviço você vai fazer?</label><input id="service" placeholder="Ex.: pintura de quarto, bolo de aniversário"></div>
-<div class="field"><label for="hours">Horas de trabalho</label><input id="hours" type="number" min="0" step="0.5" value="4"></div>
-<div class="field"><label for="hourly">Quanto vale sua hora? <span class="hint">(R$)</span></label><input id="hourly" type="number" min="0" step="1" value="40"></div>
-<div class="field"><label for="materials">Materiais e custos <span class="hint">(R$)</span></label><input id="materials" type="number" min="0" step="1" value="0"></div>
-<div class="field"><label for="margin">Reserva para imprevistos <span class="hint">(%)</span></label><input id="margin" type="number" min="0" max="100" step="1" value="10"></div>
-<div class="field full"><label for="client">Nome do cliente <span class="hint">(opcional)</span></label><input id="client" placeholder="Ex.: Ana"></div></div><div class="notice">Dica: inclua deslocamento, taxas e impostos nos custos quando eles se aplicarem ao seu serviço.</div></div>
-<div class="card"><h2>Seu preço sugerido</h2><div class="result" aria-live="polite"><small>Valor para apresentar</small><div id="price" class="price">R$ 176,00</div><div class="explain">Estimativa baseada nos valores informados</div><div class="breakdown"><div class="row"><span>Seu tempo</span><b id="labor">R$ 160,00</b></div><div class="row"><span>Materiais e custos</span><b id="costs">R$ 0,00</b></div><div class="row"><span>Reserva</span><b id="buffer">R$ 16,00</b></div></div></div>
-<div class="field"><label for="phone">WhatsApp do cliente <span class="hint">(opcional, com DDD)</span></label><input id="phone" inputmode="tel" placeholder="Ex.: 11987654321"></div><div id="preview" class="preview"></div><button class="btn" id="copy">Copiar mensagem</button><button class="btn secondary" id="whatsapp">Abrir WhatsApp</button><p class="disclaimer">O resultado é uma referência simples. Revise os custos e ajuste o valor à sua experiência, região e tipo de serviço. Seus dados ficam neste navegador.</p></div></section>
-</main><footer class="footer"><span>OrçaFácil · Uma ferramenta gratuita para quem trabalha por conta própria.</span><span>Não substitui orientação contábil.</span></footer>
-<script>
-const ids=['service','hours','hourly','materials','margin','client','phone'];const el=id=>document.getElementById(id);const money=n=>Number(n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-function update(){const hours=Math.max(0,+el('hours').value||0),hourly=Math.max(0,+el('hourly').value||0),costs=Math.max(0,+el('materials').value||0),pct=Math.max(0,Math.min(100,+el('margin').value||0))/100;const labor=hours*hourly,buffer=(labor+costs)*pct,total=labor+costs+buffer;el('price').textContent=money(total);el('labor').textContent=money(labor);el('costs').textContent=money(costs);el('buffer').textContent=money(buffer);const service=el('service').value.trim()||'o serviço combinado',client=el('client').value.trim(),hi=client?'Olá, '+client+'!':'Olá!';el('preview').textContent=hi+' Segue meu orçamento para '+service+': '+money(total)+'.\n\nO valor considera o serviço e os custos informados. Se estiver de acordo, podemos combinar a melhor data.\n\nObrigado pela preferência!';localStorage.setItem('orcafacil',JSON.stringify(Object.fromEntries(ids.map(id=>[id,el(id).value]))));}
-try{const saved=JSON.parse(localStorage.getItem('orcafacil')||'{}');ids.forEach(id=>{if(saved[id]!==undefined)el(id).value=saved[id]})}catch{}ids.forEach(id=>el(id).addEventListener('input',update));update();
-el('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(el('preview').textContent);el('copy').textContent='Mensagem copiada!';setTimeout(()=>el('copy').textContent='Copiar mensagem',1800)}catch{el('copy').textContent='Selecione e copie a mensagem acima'}});
-el('whatsapp').addEventListener('click',()=>{const phone=el('phone').value.replace(/\D/g,'');const text=encodeURIComponent(el('preview').textContent);window.open('https://wa.me/'+phone+'?text='+text,'_blank','noopener')});
-</script></body></html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f5f0">
+  <title>OrçaFácil — preço justo, orçamento pronto</title>
+  <meta name="description" content="Calcule o preço do seu serviço e monte uma mensagem de orçamento pronta para revisar. Grátis e sem cadastro.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header><div class="brand">orça<span>fácil</span></div><div class="tag">FERRAMENTA GRATUITA · SEM CADASTRO</div></header>
+  <main>
+    <section class="hero"><div class="eyebrow">Seu trabalho tem valor</div><h1>Preço justo.<br>Orçamento pronto.</h1><p>Descubra quanto cobrar pelo seu serviço e prepare uma proposta clara para revisar antes de enviar.</p></section>
+    <section id="legacyNotice" class="notice legacy-warning" hidden aria-live="polite"><strong>Rascunho antigo salvo sem criptografia</strong><p>Uma versão anterior guardou campos deste orçamento no navegador em texto legível. Você pode carregá-los nesta sessão ou apagar a cópia antiga. Se mantê-la, outros scripts que rodem nesta página também podem acessá-la.</p><div class="legacy-actions"><button class="btn" id="loadLegacyDraft" type="button">Recuperar rascunho</button><button class="btn secondary" id="deleteLegacyDraft" type="button">Apagar cópia antiga</button></div><p id="legacyStatus" class="legacy-status" role="status"></p></section>
+    <section class="grid">
+      <div class="card"><h2>Monte seu orçamento</h2>
+        <div class="fields">
+          <div class="field full"><label for="service">Qual serviço você vai fazer?</label><input id="service" placeholder="Ex.: pintura de quarto, bolo de aniversário"></div>
+          <div class="field"><label for="hours">Horas de trabalho</label><input id="hours" type="number" min="0" max="10000" step="0.5" value="4"></div>
+          <div class="field"><label for="hourly">Quanto vale sua hora? <span class="hint">(R$)</span></label><input id="hourly" type="number" min="0" max="100000000" step="1" value="40"></div>
+          <div class="field"><label for="materials">Materiais e custos <span class="hint">(R$)</span></label><input id="materials" type="number" min="0" max="100000000" step="1" value="0"></div>
+          <div class="field"><label for="margin">Reserva para imprevistos <span class="hint">(%)</span></label><input id="margin" type="number" min="0" max="100" step="1" value="10"></div>
+          <div class="field full"><label for="client">Nome do cliente <span class="hint">(opcional)</span></label><input id="client" placeholder="Ex.: Ana"></div>
+        </div>
+        <div class="notice">Dica: inclua deslocamento, taxas e impostos nos custos quando eles se aplicarem ao seu serviço.</div>
+      </div>
+      <div class="card"><h2>Seu preço sugerido</h2>
+        <div class="result" aria-live="polite"><small>Valor para apresentar</small><div id="price" class="price">R$ 176,00</div><div class="explain">Estimativa baseada nos valores informados</div><div class="breakdown"><div class="row"><span>Seu tempo</span><b id="labor">R$ 160,00</b></div><div class="row"><span>Materiais e custos</span><b id="costs">R$ 0,00</b></div><div class="row"><span>Reserva</span><b id="buffer">R$ 16,00</b></div></div></div>
+        <div class="field"><label for="phone">WhatsApp do cliente <span class="hint">(opcional, com DDD)</span></label><input id="phone" inputmode="tel" placeholder="Ex.: 11987654321"></div>
+        <div id="preview" class="preview"></div><button class="btn" id="copy">Copiar mensagem</button><button class="btn secondary" id="whatsapp">Abrir WhatsApp</button>
+        <p class="disclaimer">O cálculo fica apenas nesta página e não é salvo. Se abrir o WhatsApp, o telefone e a mensagem serão enviados ao WhatsApp; confira antes de enviar.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>OrçaFácil · Uma ferramenta gratuita para quem trabalha por conta própria.</span><span>Não substitui orientação contábil.</span></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
+
